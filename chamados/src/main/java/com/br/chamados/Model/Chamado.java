@@ -2,7 +2,11 @@ package com.br.chamados.Model;
 
 
 
-import java.util.Date;
+
+
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -16,7 +20,10 @@ public class Chamado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private Date data;
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
+   private  LocalDate data;
+  
+
     private String titulo;
     private String descricao;
     private String historico;
@@ -32,16 +39,31 @@ public class Chamado {
 
     }
 
-    public Chamado(int id, Date data, String titulo, String descricao, String historico, boolean status) {
+ 
+
+    
+
+    public Chamado(int id, LocalDate data, String titulo, String descricao, String historico, boolean status, Fila fila,
+            Produto produto, Usuario usuario) {
         this.id = id;
         this.data = data;
         this.titulo = titulo;
         this.descricao = descricao;
         this.historico = historico;
         this.status = status;
+        this.fila = fila;
+        this.produto = produto;
+        this.usuario = usuario;
     }
 
-    
+
+
+  public LocalDate getData() {
+        return data;
+    }
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
 
     public Fila getFila() {
         return fila;
@@ -109,12 +131,5 @@ public class Chamado {
         this.status = status;
     }
 
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
 
 }

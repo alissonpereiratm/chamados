@@ -16,13 +16,6 @@
     <label for="descricao">Descrição:</label>
     <input type="text" name="descricao"><br><br>
  
-    <th:block>
-      <label for="chamado">Chamado:</label>
-      <select name="id" id="select">
-        <option value="null" selected>Selecione</option>
-        <option th:each="chamado:${chamados}" th:value="${chamado.id}" th:text="${chamado.titulo}"></option>
-      </select>
-    </th:block><br><br>
 
 
     <button type="submit" class="button">Salvar</button>
