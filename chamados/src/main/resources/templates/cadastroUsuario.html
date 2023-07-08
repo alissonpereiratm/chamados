@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cadastroChamado.css">
+    <title>Aluno Registration Form</title>
+</head>
+
+<body>
+    <h1>Aluno Registration Form</h1>
+    <form action="/cadastroUsuario" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="usuario">Usuário:</label>
+        <input type="text" id="usuario" name="usuario" required><br><br>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="usuario" name="senha" required><br><br>
+        
+        <label for="cpf">CPF:</label>
+        <input type="text" id="usuario" name="cpf" required><br><br>
+    
+        <th:block>
+            <label for="tipo">Tipo:</label>
+            <select name="id" id="select">
+              <option value="null" selected>Selecione</option>
+              <option th:each="tipo:${tipos}" th:value="${tipo.id}" th:text="${tipo.descricao}"></option>
+            </select>
+          </th:block>
+          <button type="submit" class="button">Salvar</button>
+    </form>
+    
+</body>
+
+</html>
