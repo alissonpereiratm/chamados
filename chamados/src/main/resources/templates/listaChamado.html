@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../home.css">
+    <link rel="stylesheet" href="../listaChamado.css">
     <title>Lista Chamado</title>
 </head>
 
@@ -15,6 +15,7 @@
             <nav>
                 <ul>
                     <li><a href="/login">SAIR</a></li>
+                    <li><a href="/home">HOME</a></li>
                 </ul>
             </nav>
         </div>
@@ -26,7 +27,7 @@
                     <th scope="col">Data</th>
                     <th scope="col">Título</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Abrir</th>
+                    <th scope="col"></th>
                 </tr>
 
             </thead>
@@ -36,10 +37,10 @@
                     <td data-th-text="${chamado.titulo}"></td>
                     <td>
                         <div th:if="${chamado.status == true}">
-                          <a class="btn">Resolvido</a>
+                          <a >Resolvido</a>
                         </div>
                         <div th:if="${chamado.status == false}">
-                          <a class="btn">Não Resolvido</a>
+                          <a >Não Resolvido</a>
                         </div>
                       </td>
                       <td><a class="btn" th:href="@{'/chamadoDetalhado/'+${chamado.id}}">Vizualizar</a></td>

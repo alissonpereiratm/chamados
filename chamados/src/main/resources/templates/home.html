@@ -15,6 +15,7 @@
         sessionStorage.setItem('mensagemExibida', 'true');
     }
 </script>
+
 <body>
     <div class="top-content">
         <div class="nav-bar">
@@ -25,41 +26,44 @@
             </nav>
         </div>
     </div>
-    <div class="table-content">
-        <table class="book-list">
+    <table class="book-list">
+        <div class="table-content">
+
             <thead>
                 <tr>
                     <th scope="col">Filas</th>
                 </tr>
-
             </thead>
-            <tbody>
-                <tr data-th-each="fila: ${filas}">
-                    <td>
-                        <a th:href="@{'/listaChamado/' + ${fila.id}}">
-                            <span data-th-text="${fila.descricao}"></span>
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="table-content">
-        <thead>
-            <tr>
-                <th scope="col">Cadastro</th>
+    </table>
+  
+        <tbody>
+           
+            <tr data-th-each="fila: ${filas}">
+                <table class="list"> 
+                <td>
+                    <a class="button2" th:href="@{'/listaChamado/' + ${fila.id}}">
+                        <span data-th-text="${fila.descricao}"></span>
+                    </a>
+                </td>
+            </table>
             </tr>
-        </thead>
-        
-            <td>
-                <div class="button"><a href="/cadastroChamado">Chamado</a></div>
-            </td>
-        
+       
+        </tbody>
+   
     </div>
+    <table class="book-list">
+    <div class="table-content">
+        <tr>
+            <th scope="col">Cadastro</th>
+        </tr>
+
+        <td>
+            <div class="button"><a href="/cadastroChamado">Chamado</a></div>
+        </td>
+    </div>
+</table>
     <div class="table-content" th:style="'display: ' + (${usuario.isUsuarioAdm} ? 'flex' : 'none')">
-     
         <table class="book-list">
-          
             <tbody>
                 <tr>
                     <td>

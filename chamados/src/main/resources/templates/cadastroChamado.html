@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+  <h1>Cadastro Chamados</h1>
 
   <form method="post" action="/cadastroChamado">
     <label for="titulo">Titulo:</label>
@@ -32,8 +32,13 @@
         <option th:each="produto:${produtos}" th:value="${produto.id}" th:text="${produto.nome}"></option>
       </select>
     </th:block><br><br>
+  
+      <button type="submit" class="button">Salvar</button><br>
+    
 
-    <button type="submit" class="button">Salvar</button>
+      <div class="button2"><a href="/home">Home</a>
+    </div>
+
   </form>
 
 
