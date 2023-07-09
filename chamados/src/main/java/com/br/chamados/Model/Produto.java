@@ -14,7 +14,7 @@ public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String nome;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "produto")
     private List<Chamado> chamados;
@@ -22,7 +22,7 @@ public class Produto {
     public Produto() {
     }
 
-    public Produto(int id, String nome) {
+    public Produto(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
     }
@@ -33,7 +33,7 @@ public class Produto {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

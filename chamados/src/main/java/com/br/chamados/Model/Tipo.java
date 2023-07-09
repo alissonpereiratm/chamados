@@ -52,5 +52,9 @@ public class Tipo {
     public void setUsuarios(List<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
+    
+    public boolean isTipoAdm() {
+    	return "ADM".equalsIgnoreCase(this.descricao);
+    }
 
 }

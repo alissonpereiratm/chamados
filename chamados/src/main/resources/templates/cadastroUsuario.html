@@ -13,23 +13,21 @@
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required><br><br>
 
-        <label for="usuario">Usuário:</label>
-        <input type="text" id="usuario" name="usuario" required><br><br>
+        <label for="login">Login:</label>
+        <input type="text" id="login" name="login" required><br><br>
 
         <label for="senha">Senha:</label>
         <input type="password" id="usuario" name="senha" required><br><br>
         
         <label for="cpf">CPF:</label>
         <input type="text" id="usuario" name="cpf" required><br><br>
-    
-        <th:block>
-            <label for="tipo">Tipo:</label>
-            <select name="id" id="select">
-              <option value="null" selected>Selecione</option>
-              <option th:each="tipo:${tipos}" th:value="${tipo.id}" th:text="${tipo.descricao}"></option>
-            </select>
-          </th:block>
-          <button type="submit" class="button">Salvar</button>
+   
+		<th:block th:each="tipo :${tipoUsuarios}">
+			<input class="form-check-input" type="checkbox" name="tipos" th:value="${tipo.id}">
+			<label class="form-check-label" th:text="${tipo.descricao}"></label>
+		</th:block>
+		<button type="submit" class="button">Salvar</button>
+		
     </form>
     
 </body>

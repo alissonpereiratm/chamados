@@ -13,7 +13,7 @@ import jakarta.persistence.OneToMany;
 public class Fila {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String descricao;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fila")
     private List<Chamado> chamados;
@@ -23,7 +23,7 @@ public class Fila {
 
     }
 
-    public Fila(int id, String descricao) {
+    public Fila(Integer id, String descricao) {
         this.id = id;
         this.descricao = descricao;
     }
@@ -33,7 +33,7 @@ public class Fila {
     public int getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public String getDescricao() {

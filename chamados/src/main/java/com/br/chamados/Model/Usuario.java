@@ -18,27 +18,16 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String nome;
     private String login;
     private String senha;
     private String cpf;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
-    private List<Chamado> chamados;
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "usuario_tipo", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "tipo_id"))
-    List<Tipo> tipos;
-
-    public Usuario() {
-    }
-
-    public Usuario(int id, String nome, String login, String senha, String cpf) {
-        this.id = id;
-        this.nome = nome;
-        this.login = login;
-        this.senha = senha;
-        this.cpf = cpf;
-    }
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
+	private List<Chamado> chamados;
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "usuario_tipo", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "tipo_id"))
+	List<Tipo> tipos;
 
     public List<Chamado> getChamados() {
         return chamados;
@@ -56,11 +45,11 @@ public class Usuario {
         this.tipos = tipos;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
