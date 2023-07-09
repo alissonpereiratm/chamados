@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="home.css">
     <title>Home</title>
 </head>
-<!--<script th:inline="javascript">
-    var minhaVariavel = '[[${}]]';
-    alert(minhaVariavel);
-</script>-->
-
+<script th:inline="javascript">
+    var mensagemExibida = sessionStorage.getItem('mensagemExibida');
+    if (!mensagemExibida) {
+        alert('Bem-vindo, ' + '[[${usuario.nome}]]' + '!');
+        sessionStorage.setItem('mensagemExibida', 'true');
+    }
+</script>
 <body>
     <div class="top-content">
         <div class="nav-bar">
@@ -48,13 +50,14 @@
                 <th scope="col">Cadastro</th>
             </tr>
         </thead>
-        <tr>
+        
             <td>
                 <div class="button"><a href="/cadastroChamado">Chamado</a></div>
             </td>
-        </tr>
+        
     </div>
     <div class="table-content" th:style="'display: ' + (${usuario.isUsuarioAdm} ? 'flex' : 'none')">
+     
         <table class="book-list">
           
             <tbody>
