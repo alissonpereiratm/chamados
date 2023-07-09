@@ -72,9 +72,20 @@ body {
 }
 
   
-  button.button {
-    margin-top: 10px;
-    padding: 10px 20px;
+.button2 {
+    display: inline-block;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
     font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    width: 157px;
   }
-  
+  .button2:hover {
+    background-color: #2980b9;
+  }
