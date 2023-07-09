@@ -6,12 +6,14 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.br.chamados.Model.Chamado;
 import com.br.chamados.Model.Fila;
 import com.br.chamados.Model.Produto;
+import com.br.chamados.Model.Usuario;
 import com.br.chamados.Repository.ChamadoRepository;
 import com.br.chamados.Repository.FilaRepository;
 import com.br.chamados.Repository.ProdutoRepository;
@@ -51,5 +53,28 @@ public class ChamadoController {
     	chamadoRepository.save(chamado);
         return "redirect:/cadastroChamado";
     }
+
+    @GetMapping("/listaChamado/{id}")
+    public ModelAndView listaChamado(@PathVariable("id") int id) {
+        ModelAndView mv = new ModelAndView("listaChamado");
+        Fila fila = filaRepository.findById(id).get();
+        mv.addObject("chamados", fila.getChamados());
+        return mv;
+    }
+
+
+      @GetMapping("/chamadoDetalhado/{id}")
+    public ModelAndView chamadoDetalhado(@PathVariable("id") int id) {
+        ModelAndView mv = new ModelAndView("chamadoDetalhado");
+       Chamado chamado = chamadoRepository.findById(id).get();
+       Usuario usuario= SessaoSistema.getInstance().getUsuarioLogado();
+        mv.addObject("chamado", chamado);
+         mv.addObject("usuario", usuario);
+        return mv;
+    }
+
+
+  
+
 
 }

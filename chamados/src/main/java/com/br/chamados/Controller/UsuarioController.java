@@ -54,9 +54,9 @@ public class UsuarioController {
 		List<Tipo> tipoUsuarioList = SessaoSistema.getInstance().getUsuarioLogado().getTipos();
 		/*verifica se tem tipo adm na lista tipoUsuarioList*/
 		if (tipoUsuarioList.stream().anyMatch(Tipo::isTipoAdm)) {
-			return "redirect:/cadastroFila";
+			return "redirect:/home";
 		}
-		return "redirect:/cadastroChamado";
+		return "redirect:/home";
 	}
 
 }

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../home.css">
+    <title>Chamado Detalhado</title>
+</head>
+
+<body>
+    <div class="top-content">
+        <div class="nav-bar">
+            <nav>
+                <ul>
+                    <li><a href="/login">SAIR</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="table-content">
+        <table class="book-list">
+            <thead>
+                <tr>
+                    <th scope="col">Data</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Usuário</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Histórico</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-th-text="${chamado.data}"></td>
+                    <td data-th-text="${chamado.titulo}"></td>
+                    <td data-th-text="${chamado.usuario}"></td>
+                    <td data-th-text="${chamado.descricao}"></td>
+                    <label for="descricao">Historico</label>
+                </tr>
+                <form action="/finalizaChamado" method="post">
+                    <input type="text" name="historico"><br><br>
+                    <button type="submit" class="button">Finalizar</button>
+                </form>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

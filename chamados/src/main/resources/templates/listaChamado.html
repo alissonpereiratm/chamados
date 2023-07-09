@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../home.css">
+    <title>Lista Chamado</title>
+</head>
+
+<body>
+    <div class="top-content">
+        <div class="nav-bar">
+            <nav>
+                <ul>
+                    <li><a href="/login">SAIR</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="table-content">
+        <table class="book-list">
+            <thead>
+                <tr>
+                    <th scope="col">Data</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Abrir</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr data-th-each="chamado: ${chamados}">
+                    <td data-th-text="${chamado.data}"></td>
+                    <td data-th-text="${chamado.titulo}"></td>
+                    <td>
+                        <div th:if="${chamado.status == true}">
+                          <a class="btn">Resolvido</a>
+                        </div>
+                        <div th:if="${chamado.status == false}">
+                          <a class="btn">Não Resolvido</a>
+                        </div>
+                      </td>
+                      <td><a class="btn" th:href="@{'/chamadoDetalhado/'+${chamado.id}}">Vizualizar</a></td>
+                </tr>
+               
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
