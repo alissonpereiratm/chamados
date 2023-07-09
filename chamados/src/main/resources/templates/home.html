@@ -8,13 +8,20 @@
     <link rel="stylesheet" href="home.css">
     <title>Home</title>
 </head>
-<script th:inline="javascript">
-    var mensagemExibida = sessionStorage.getItem('mensagemExibida');
-    if (!mensagemExibida) {
-        alert('Bem-vindo, ' + '[[${usuario.nome}]]' + '!');
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var mensagemExibida = sessionStorage.getItem('mensagemExibida');
+      var usuarioNome = "[[${usuario.nome}]]"; // Replace with the username variable from your server-side template
+      var storedUsername = sessionStorage.getItem('username');
+  
+      if (!mensagemExibida || storedUsername !== usuarioNome) {
+        alert('Bem-vindo, ' + usuarioNome + '!');
         sessionStorage.setItem('mensagemExibida', 'true');
-    }
-</script>
+        sessionStorage.setItem('username', usuarioNome);
+      }
+    });
+  </script>
 
 <body>
     <div class="top-content">
@@ -77,7 +84,7 @@
         </table>
     </div>
 
-
+  
 
 </body>
 
