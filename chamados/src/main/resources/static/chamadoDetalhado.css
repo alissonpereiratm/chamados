@@ -2,11 +2,8 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    margin-right: 20%;
     padding: 0;
-    margin-left: 20%;
-    min-height: 50vh;
-}
+  }
   
 
   .top-content {
@@ -31,6 +28,7 @@ body {
     padding: 5px;
   }
   
+
   .table-content {
     margin-top: 20px;
   }
@@ -58,24 +56,25 @@ body {
   .book-list tbody tr:hover {
     background-color: #eaeaea;
   }
+  
 
-
-.button {
+  label[for="descricao"] {
+    margin-top: 10px;
     display: block;
-    margin-bottom: 10px;
+  }
+  
+  textarea[name="historico"] {
+    width: 25%;
+    height: 100px;
+    font-size: 14px;
+    margin-left: 5%;
+    margin-top: 5px;
+}
+
+  
+  button.button {
+    margin-top: 10px;
     padding: 10px 20px;
-    background-color: #f5f5f5;
-    color: #333;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none;
     font-size: 16px;
-    cursor: pointer;
   }
-  
-  .button:hover {
-    background-color: #eaeaea;
-  }
-  
-  
   

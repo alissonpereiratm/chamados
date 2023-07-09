@@ -36,7 +36,7 @@ public class UsuarioController {
     @PostMapping("/cadastroUsuario")
     public String cadastro(Usuario usuario, @RequestParam(value = "tipos", required = false) List<Integer> idTipoList) {
     	usuarioRepository.save(usuario);
-    	return "redirect:/cadastroUsuario";
+    	return "redirect:/home";
     }
     
     @GetMapping("/login")
@@ -51,9 +51,8 @@ public class UsuarioController {
 			return "redirect:/login";
 		}
 		SessaoSistema.getInstance().setUsuarioLogado(usuarios.get(0));
-		List<Tipo> tipoUsuarioList = SessaoSistema.getInstance().getUsuarioLogado().getTipos();
-		/*verifica se tem tipo adm na lista tipoUsuarioList*/
-		if (tipoUsuarioList.stream().anyMatch(Tipo::isTipoAdm)) {
+
+		if (SessaoSistema.getInstance().getUsuarioLogado().isUsuarioAdm()) {
 			return "redirect:/home";
 		}
 		return "redirect:/home";

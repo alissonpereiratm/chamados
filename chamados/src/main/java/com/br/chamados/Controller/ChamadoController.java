@@ -43,15 +43,15 @@ public class ChamadoController {
         return mv;
     }
 
-	@PostMapping("/cadastroChamado")
-	public String cadastro(Chamado chamado) {
-		if (SessaoSistema.getInstance().isNaoPossuiUsuarioLogado()) {
-			return "redirect:/login";
-		}
+    @PostMapping("/cadastroChamado")
+    public String cadastro(Chamado chamado) {
+        if (SessaoSistema.getInstance().isNaoPossuiUsuarioLogado()) {
+            return "redirect:/login";
+        }
         chamado.setUsuario(usuarioRepository.findById(SessaoSistema.getInstance().getUsuarioLogado().getId()).get());
         chamado.setData(LocalDate.now());
-    	chamadoRepository.save(chamado);
-        return "redirect:/cadastroChamado";
+        chamadoRepository.save(chamado);
+        return "redirect:/home";
     }
 
     @GetMapping("/listaChamado/{id}")
@@ -62,19 +62,24 @@ public class ChamadoController {
         return mv;
     }
 
-
-      @GetMapping("/chamadoDetalhado/{id}")
+    @GetMapping("/chamadoDetalhado/{id}")
     public ModelAndView chamadoDetalhado(@PathVariable("id") int id) {
         ModelAndView mv = new ModelAndView("chamadoDetalhado");
-       Chamado chamado = chamadoRepository.findById(id).get();
-       Usuario usuario= SessaoSistema.getInstance().getUsuarioLogado();
+        Chamado chamado = chamadoRepository.findById(id).get();
         mv.addObject("chamado", chamado);
-         mv.addObject("usuario", usuario);
         return mv;
     }
 
-
-  
-
+    @PostMapping("/finalizaChamado")
+    public String finalizaChamado(Chamado chamado) {
+      /* if (SessaoSistema.getInstance().isNaoPossuiUsuarioLogado()) {
+            return "redirect:/login";
+        }*/
+        Chamado chamadoBanco=chamadoRepository.findById(chamado.getId()).get();
+        chamadoBanco.setStatus(true);
+        chamadoBanco.setHistorico(chamado.getHistorico());
+        chamadoRepository.save(chamadoBanco);
+        return "redirect:/home";
+    }
 
 }

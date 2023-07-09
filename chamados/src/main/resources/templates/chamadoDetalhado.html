@@ -5,19 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../home.css">
+    <link rel="stylesheet" href="../chamadoDetalhado.css">
     <title>Chamado Detalhado</title>
 </head>
 
 <body>
     <div class="top-content">
-        <div class="nav-bar">
-            <nav>
-                <ul>
-                    <li><a href="/login">SAIR</a></li>
-                </ul>
-            </nav>
-        </div>
+        <form action="/finalizaChamado" method="post">
+            <div class="formulario" th:if="${chamado}">
+                <input type="hidden" name="id" th:value="${chamado?.id}">
+            </div>
+            <div class="nav-bar">
+                <nav>
+                    <ul>
+                        <li><a href="/login">SAIR</a></li>
+                    </ul>
+                </nav>
+            </div>
     </div>
     <div class="table-content">
         <table class="book-list">
@@ -27,7 +31,6 @@
                     <th scope="col">Título</th>
                     <th scope="col">Usuário</th>
                     <th scope="col">Descrição</th>
-                    <th scope="col">Histórico</th>
                 </tr>
 
             </thead>
@@ -37,14 +40,21 @@
                     <td data-th-text="${chamado.titulo}"></td>
                     <td data-th-text="${chamado.usuario}"></td>
                     <td data-th-text="${chamado.descricao}"></td>
-                    <label for="descricao">Historico</label>
                 </tr>
-                <form action="/finalizaChamado" method="post">
-                    <input type="text" name="historico"><br><br>
-                    <button type="submit" class="button">Finalizar</button>
-                </form>
+
             </tbody>
         </table>
+        <div th:if="${chamado.status}">
+            <label for="descricao">Historico:</label>
+            <textarea rows="8" data-th-text="${chamado.descricao}"></textarea><br><br>
+        </div>
+
+        <div th:if="${!chamado.status}">
+            <label for="descricao">Historico:</label>
+            <textarea rows="8" required name="historico"></textarea><br><br>
+            <button type="submit" class="button">Finalizar</button>
+        </div>
+        </form>
     </div>
 </body>
 

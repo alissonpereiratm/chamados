@@ -24,6 +24,6 @@ public class TipoController {
 	 @PostMapping("/cadastroTipoUsuario")
     public String cadastro(Tipo Tipo) {
     	tipoRepository.save(Tipo);
-    	return "redirect:/cadastroTipoUsuario";
+    	return "redirect:/home";
     }
 }

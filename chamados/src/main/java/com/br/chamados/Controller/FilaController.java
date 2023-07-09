@@ -14,6 +14,8 @@ import com.br.chamados.Model.Tipo;
 import com.br.chamados.Repository.ChamadoRepository;
 import com.br.chamados.Repository.FilaRepository;
 
+import session.SessaoSistema;
+
 @Controller
 public class FilaController {
     @Autowired
@@ -27,7 +29,9 @@ public class FilaController {
 	public ModelAndView home() {
 		ModelAndView mv = new ModelAndView("home");
 		ArrayList<Fila>filas = (ArrayList<Fila>) filaRepository.findAll();
+
 		mv.addObject("filas", filas);
+        mv.addObject("usuario",SessaoSistema.getInstance().getUsuarioLogado());
 		return mv;
 	}
 
@@ -40,7 +44,7 @@ public class FilaController {
     @PostMapping("/cadastroFila")
     public String cadastro(Fila fila) {
     	filaRepository.save(fila);
-    	return "redirect:/cadastroFila";
+    	return "redirect:/home";
     }
 
    

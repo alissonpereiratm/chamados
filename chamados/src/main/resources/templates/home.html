@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="home.css">
     <title>Home</title>
 </head>
+<!--<script th:inline="javascript">
+    var minhaVariavel = '[[${}]]';
+    alert(minhaVariavel);
+</script>-->
 
 <body>
     <div class="top-content">
@@ -24,22 +28,50 @@
             <thead>
                 <tr>
                     <th scope="col">Filas</th>
-                    <th scope="col">Cadastros</th>
-               
                 </tr>
 
             </thead>
             <tbody>
                 <tr data-th-each="fila: ${filas}">
-                  <td>
-                    <a th:href="@{'/listaChamado/' + ${fila.id}}">
-                      <span data-th-text="${fila.descricao}"></span>
-                    </a>
-                  </td>
+                    <td>
+                        <a th:href="@{'/listaChamado/' + ${fila.id}}">
+                            <span data-th-text="${fila.descricao}"></span>
+                        </a>
+                    </td>
                 </tr>
-              </tbody>
+            </tbody>
         </table>
     </div>
+    <div class="table-content">
+        <thead>
+            <tr>
+                <th scope="col">Cadastro</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>
+                <div class="button"><a href="/cadastroChamado">Chamado</a></div>
+            </td>
+        </tr>
+    </div>
+    <div class="table-content" th:style="'display: ' + (${usuario.isUsuarioAdm} ? 'flex' : 'none')">
+        <table class="book-list">
+          
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="button"><a href="/cadastroProduto">Produto</a></div>
+                        <div class="button"><a href="/cadastroTipoUsuario">Tipo Usuario</a></div>
+                        <div class="button"><a href="/cadastroUsuario">Usuario</a></div>
+                        <div class="button"><a href="/cadastroFila">Fila</a></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
 </body>
 
 </html>

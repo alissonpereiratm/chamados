@@ -23,7 +23,7 @@ public class ProdutoController {
     @PostMapping("/cadastroProduto")
 	public String cadastro(Produto produto) {
     	produtoRepository.save(produto);
-        return "redirect:/cadastroProduto";
+        return "redirect:/home";
     }
 
 }

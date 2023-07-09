@@ -29,6 +29,15 @@ public class Usuario {
 	@JoinTable(name = "usuario_tipo", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "tipo_id"))
 	List<Tipo> tipos;
 
+
+
+
+    
+    @Override
+    public String toString() {
+        return nome + " ["+ login +"]";
+    } 
+
     public List<Chamado> getChamados() {
         return chamados;
     }
@@ -84,5 +93,8 @@ public class Usuario {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-
+    
+    public boolean isUsuarioAdm(){
+        return getTipos().stream().anyMatch(Tipo::isTipoAdm);
+    }
 }
