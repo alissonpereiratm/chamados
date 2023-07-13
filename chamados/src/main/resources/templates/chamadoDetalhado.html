@@ -30,7 +30,7 @@
                 <tr>
                     <th scope="col">Data</th>
                     <th scope="col">Título</th>
-                    <th scope="col">Usuário</th>
+                    <th scope="col">Nome/Usuário</th>
                     <th scope="col">Descrição</th>
                 </tr>
 
@@ -47,11 +47,11 @@
         </table>
         <div th:if="${chamado.status}">
             <label for="descricao">Historico:</label>
-            <textarea rows="8" data-th-text="${chamado.descricao}"></textarea><br><br>
+            <textarea rows="8" data-th-text="${chamado.historico}"></textarea><br><br>
         </div>
 
         <div th:if="${!chamado.status}">
-            <label for="descricao">Historico:</label>
+            <label for="historico">Historico:</label>
             <textarea rows="8" required name="historico"></textarea><br><br>
             <button type="submit" class="button2">Finalizar</button>
         </div>

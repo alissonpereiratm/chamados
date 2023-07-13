@@ -14,8 +14,8 @@
         <div class="nav-bar">
             <nav>
                 <ul>
-                    <li><a href="/login">SAIR</a></li>
                     <li><a href="/home">HOME</a></li>
+                    <li><a href="/login">SAIR</a></li>
                 </ul>
             </nav>
         </div>
@@ -37,13 +37,13 @@
                     <td data-th-text="${chamado.titulo}"></td>
                     <td>
                         <div th:if="${chamado.status == true}">
-                          <a >Resolvido</a>
+                         <strong> <a style="color: green;" >Resolvido</a></strong>
                         </div>
                         <div th:if="${chamado.status == false}">
-                          <a >Não Resolvido</a>
+                        <strong>  <a style="color: red;">Pendente</a> </strong>
                         </div>
                       </td>
-                      <td><a class="btn" th:href="@{'/chamadoDetalhado/'+${chamado.id}}">Vizualizar</a></td>
+                      <td><a class="btn" th:href="@{'/chamadoDetalhado/'+${chamado.id}}">Visualizar</a></td>
                 </tr>
                
             </tbody>
