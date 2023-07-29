@@ -37,15 +37,17 @@
                     <td data-th-text="${chamado.titulo}"></td>
                     <td>
                         <div th:if="${chamado.status == true}">
-                         <strong> <a style="color: green;" >Resolvido</a></strong>
+                            <strong> <a style="color: green;">Resolvido</a></strong>
                         </div>
                         <div th:if="${chamado.status == false}">
-                        <strong>  <a style="color: red;">Pendente</a> </strong>
+                            <strong> <a style="color: red;">Pendente</a> </strong>
                         </div>
-                      </td>
-                      <td><a class="btn" th:href="@{'/chamadoDetalhado/'+${chamado.id}}">Visualizar</a></td>
+                    </td>
+          
+                        <td><a class="btn" th:href="@{'/chamadoDetalhado/'+${chamado.id}}">Visualizar</a></td>
+                    
                 </tr>
-               
+
             </tbody>
         </table>
     </div>

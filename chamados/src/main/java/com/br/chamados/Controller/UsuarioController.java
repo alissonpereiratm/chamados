@@ -51,10 +51,6 @@ public class UsuarioController {
 			return "redirect:/login";
 		}
 		SessaoSistema.getInstance().setUsuarioLogado(usuarios.get(0));
-
-		if (SessaoSistema.getInstance().getUsuarioLogado().isUsuarioAdm()) {
-			return "redirect:/home";
-		}
 		return "redirect:/home";
 	}
 

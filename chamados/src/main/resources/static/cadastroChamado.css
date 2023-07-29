@@ -1,75 +1,115 @@
-/* cadastroChamado.css */
-
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-  
-  input[type="text"],[type="password"],
-  select {
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
 
-  }
-  
-  
-  select {
-    appearance: none;
-  }
-  
-  .button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-  }
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-  .button2 {
-    padding: 10px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  .button2:hover {
-    background-color: #2980b9;
-  }
-  
-  
-  .button:hover {
-    background-color: #2980b9;
-  }
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+select {
+  appearance: none;
+}
+
+.button,
+.button2 {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button2 {
+  margin-left: 10px;
+}
+
+.button:hover,
+.button2:hover {
+  background-color: #0056b3;
+}
+
+/* Melhorias de UX */
+
+/* Adicionar espaçamento entre o formulário e o topo da página */
+form {
+  margin-top: 40px;
+}
+
+/* Adicionar espaçamento entre os campos de entrada e os rótulos */
+label {
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+  /* Aumentar o tamanho do campo de entrada e adicionar um espaçamento interno adequado */
+  padding: 12px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus {
+  /* Destacar o campo de entrada em foco com uma borda de cor diferente */
+  border-color: #007bff;
+}
+
+.button,
+.button2 {
+  /* Aumentar o espaçamento interno dos botões para uma melhor usabilidade */
+  padding: 12px 24px;
+}
+
+.button:hover,
+.button2:hover {
+  /* Escurecer a cor de fundo dos botões no hover para indicar interatividade */
+  background-color: #004999;
+}
+
+/* Adicionar espaçamento abaixo dos botões */
+.button2 {
+  margin-bottom: 10px;
+}
+
+/* Estilizar o cursor como ponteiro apenas nos botões */
+.button,
+.button2 {
+  cursor: pointer;
+}
   
